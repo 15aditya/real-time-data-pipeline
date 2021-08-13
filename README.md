@@ -4,8 +4,17 @@ This repository contains data pipeline architecture, code
 and test scripts of building real time data piplines.
 
 #### Technology Stack
-* Kafka (confluent-kafka library)
+* Kafka
 * Spark Structured Streaming
-* Alpha Ventage (US Stack Real Time Data API)
-* Data Lake
+* Databricks
+* AWS
 * Python 3+
+
+#### Architecture
+
+![plot](./real-time-pipeline-arch.png)
+
+
+#### Steps to Navigate and Consume the repository code for own perusal.
+
+TODO
