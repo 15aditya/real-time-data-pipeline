@@ -8,16 +8,10 @@ Metadata:
           default: Environment Type
         Parameters:
           - EnvironmentType
-      - Label:
-          default: AWS resources
-        Parameters:
-          - BucketName
 
     ParameterLabels:
       EnvironmentType:
         default: Environment Type
-      BucketName:
-        default: Bucketname to Upload Lambda Zips
 
 
 Parameters:
@@ -26,9 +20,6 @@ Parameters:
     Description: Environment of Deployment
     AllowedValues: [ 'dev', 'qa', 'uat', 'int', 'production' ]
     Default: 'dev'
-  BucketName:
-    Description: Bucketname to Upload Zips
-    Type: String
 
 
 Conditions:
@@ -36,11 +27,10 @@ Conditions:
     !Equals [ !Ref EnvironmentType, "production" ]
 
 Resources:
-  sourcebucket:
-    Type: AWS::CloudFormation::Stack
-    Properties:
-      Parameters:
-        EnvironmentType: !Ref EnvironmentType
-        BucketName: 'source-real-time'
-#        EncryptionKeyArn: !ImportValue s3-encryption-key
-#      TemplateURL: AwsResources/01_s3_bucket.yaml
+  realtimedatapipelineec2instance:
+      Type: AWS::CloudFormation::Stack
+      Properties:
+        Parameters:
+          KeyName: 'aws-lab-ec2-real-time-datapipeline-keypair'
+          InstanceType: 't2.micro'
+        TemplateURL: deployment/ec2_deployment.yaml

@@ -18,3 +18,9 @@ and test scripts of building real time data piplines.
 #### Steps to Navigate and Consume the repository code for own perusal.
 
 TODO
+
+aws cloudformation package --template-file master.yaml --output-template-file temp-template.templat
+e --region ap-south-1 --s3-bucket aws-lab-real-time-datapipeline
+
+aws cloudformation deploy --template-file C:\Users\Aditya\PycharmProjects\real-time-data-pipeline\t
+emp-template.template --stack-name real-time-datapipeline
