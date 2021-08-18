@@ -45,6 +45,16 @@ Resources:
       SecurityGroups: [!Ref 'InstanceSecurityGroup']
       KeyName: !Ref 'KeyName'
       ImageId: !Ref 'LatestAmiId'
+      UserData:
+        !Base64 |
+        #!/bin/bash
+        sudo yum -y install git
+        git clone https://github.com/dgadiraju/gen-logs-python3.git
+        sudo yum -y install python3
+        sudo mv -f gen-logs-python3/gen_logs /opt
+        sudo chown -R ec2-user:ec2-user /opt/gen_logs
+        export PATH=$PATH:/opt/gen_logs
+        start_logs.sh
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -54,6 +64,11 @@ Resources:
         FromPort: 22
         ToPort: 22
         CidrIp: !Ref 'SSHLocation'
+      - IpProtocol: tcp
+        FromPort: 9092
+        ToPort: 9092
+        CidrIp: !Ref 'SSHLocation'
+
 
 Outputs:
   InstanceId:

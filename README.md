@@ -41,3 +41,23 @@ real time pipeline.
 * Run `start_logs.sh`
 * Validate by running `tail_logs.sh`, you should have real time logs simulating.
 
+
+### Setting Up Kafka and Zookeper
+
+* Install `sudo yum -y install wget`
+* Install JAVA `sudo yum -y install java-1.8.0-openjdk`
+* Download Kafka `wget https://dlcdn.apache.org/kafka/2.7.1/kafka_2.12-2.7.1.tgz`
+* Unzip Kafka `tar -xzf kafka_2.12-2.7.1.tgz`
+* `vi .bashrc`
+* `export KAFKA_HEAP_OPTS="-Xmx500M -Xms500M"`
+* `source .bashrc`
+* `cd kafka_2.12-2.7.1/ `
+* ` nohup bin/zookeeper-server-start.sh config/zookeeper.properties > ~/zookeeper-logs &`
+* Use `ctrl+d` to exit from the instance
+* Relogin and validate if zookeeper is running using `telnet localhost 2181`
+* `cd kafka_2.12-2.7.1/ `
+* `nohup bin/kafka-server-start.sh config/server.properties > ~/kafka-logs &`
+* Use `ctrl+d` to exit from the instance
+* Relogin and validate if kafka is running using `telnet localhost 9092`
+
+Credit to Dzone article for kafka installation [https://dzone.com/articles/installing-and-running-kafka-on-an-aws-instance]
