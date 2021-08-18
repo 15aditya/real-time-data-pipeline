@@ -31,6 +31,6 @@ Resources:
       Type: AWS::CloudFormation::Stack
       Properties:
         Parameters:
-          KeyName: 'aws-lab-ec2-real-time-datapipeline-keypair'
+          KeyName: 'aws-lab-real-time-datapipeline'
           InstanceType: 't2.micro'
         TemplateURL: deployment/ec2_deployment.yaml
