@@ -55,6 +55,11 @@ Resources:
         sudo chown -R ec2-user:ec2-user /opt/gen_logs
         export PATH=$PATH:/opt/gen_logs
         start_logs.sh
+        sudo yum -y install wget
+        sudo yum -y install java-1.8.0-openjdk
+        wget https://dlcdn.apache.org/kafka/2.7.1/kafka_2.12-2.7.1.tgz
+        tar -xzf kafka_2.12-2.7.1.tgz
+
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:

@@ -61,3 +61,5 @@ real time pipeline.
 * Relogin and validate if kafka is running using `telnet localhost 9092`
 
 Credit to Dzone article for kafka installation [https://dzone.com/articles/installing-and-running-kafka-on-an-aws-instance]
+
+#### Kafka Commands
