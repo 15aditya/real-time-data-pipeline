@@ -32,5 +32,5 @@ Resources:
       Properties:
         Parameters:
           KeyName: 'aws-lab-real-time-datapipeline'
-          InstanceType: 't2.micro'
+          InstanceType: 't2.medium'
         TemplateURL: deployment/ec2_deployment.yaml
