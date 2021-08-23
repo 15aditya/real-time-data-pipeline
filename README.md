@@ -62,4 +62,3 @@ real time pipeline.
 
 Credit to Dzone article for kafka installation [https://dzone.com/articles/installing-and-running-kafka-on-an-aws-instance]
 
-#### Kafka Commands

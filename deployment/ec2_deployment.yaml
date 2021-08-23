@@ -59,6 +59,7 @@ Resources:
         sudo yum -y install java-1.8.0-openjdk
         wget https://dlcdn.apache.org/kafka/2.7.1/kafka_2.12-2.7.1.tgz
         tar -xzf kafka_2.12-2.7.1.tgz
+        sudo yum -y install telnet
 
   InstanceSecurityGroup:
     Type: AWS::EC2::SecurityGroup
